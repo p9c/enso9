@@ -1,0 +1,35 @@
+{{ define "framebase"}}
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title data-n-head="true">Index</title>
+    <link data-n-head="true" rel="canonical" href="https://com-http.us/"/>
+    
+
+    <style amp-custom>
+{{template "css" .}}
+
+</style>
+    {{template "amp" .}}
+    {{template "amp-boot" .}}
+
+  </head>
+  <body>
+  
+       
+    <main class="scs flx scr fwh iflx fcl fii main">
+    
+    
+{{ template "content" .}}
+          
+          
+          </main> 
+          
+          
+
+
+</body>
+</html>
+{{end}}

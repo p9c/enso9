@@ -1,0 +1,38 @@
+{{ define "content"}}
+    <section class="iflx frw fwr fii">
+    <div class="pnl"><div amp-fx="fade-in" class="flx fcl pnlbg fjc fai basics">
+    <figure class="padd"><amp-img src=data:image/png;base64,{{.coin.Imgs.Img256}} alt="{{.coin.Name}}" width="256px" height="256px" layout="fixed" class="nic"><noscript><img src="//i.com-http.us/{{.coin.Slug}}/256" width="256" height="256" alt="{{.coin.Name}}"></noscript></amp-img></figure>
+    <h1 class="flx fii fcl fjc fai"><amp-fit-text height="66px" width="280px" layout="flex-item" min-font-size="32"><a href="https://{{.coin.Slug}}.com-http.us/">{{.coin.Name}}</a></amp-fit-text></h1>
+     <div class="mard desc"></div> 
+     <ul class="flx fii sts">
+     <li><button on="tap:AMP.navigateTo(url='//{{.coin.Slug}}.com-http.us/explorer')" class="orange">Blocks</button></li> 
+     <li class="stm"><button on="tap:AMP.navigateTo(url='//{{.coin.Slug}}.com-http.us/network')" class="green">Network</button></li>
+     <li><button on="tap:AMP.navigateTo(url='//{{.coin.Slug}}.com-http.us/price')" class="red">Price</button></li>
+     </ul></div></div>
+     <div class="pnl"><div amp-fx="fade-in" class="flx fcl fooa pnlbg">
+     <h3 class="pnlhd pnlh">{{.coin.Name}} Specifications</h3>
+     <div class="padd pnlbg">
+     <table class="table"><tbody>
+     <tr><td>Name</td><td>{{.coin.Name}}</td></tr>
+     <tr><td>Symbol</td><td>{{.coin.Symbol}}</td></tr>
+     <tr><td>Start Date</td><td>{{.coin.CData.StartDate}}</td></tr>
+     <tr><td>Twitter</td><td>{{.coin.CData.Twitter}}</td></tr>
+     <tr><td>Website Url</td><td>{{.coin.CData.WebSite}}</td></tr>
+     <tr><td>Algorithm</td><td>{{.coin.Algo}}</td></tr>
+     <tr><td>Total Coin Supply</td><td>{{.coin.CData.TotalCoinSupply}}</td></tr>
+     <tr><td>Difficulty Adjustment</td><td>{{.coin.CData.DifficultyAdjustment}}</td></tr>
+     <tr><td>Block Reward Reduction</td><td>{{.coin.CData.BlockRewardReduction}}</td></tr>
+     <tr><td>Proof Type</td><td>{{.coin.CData.ProofType}}</td></tr></tbody></table></div></div></div>
+
+     <div class="pnl dbl">
+     <amp-iframe title="{{.coin.Name}} Trends - Interest over time" src="https://trends.google.com/trends/embed/explore/TIMESERIES?req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22{{.coin.Slug}}%22%2C%22geo%22%3A%22%22%2C%22time%22%3A%22today%2012-m%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D&amp;tz=-120&amp;eq=q%3D{{.coin.Slug}}%26date%3Dtoday%2012-m" height="360" layout="flex-item" frameborder="0" sandbox="allow-scripts allow-same-origin" amp-fx="fade-in"><div class="plhd"></div></amp-iframe></div> 
+     
+     <div class="pnl"><div amp-fx="fade-in" class="flx fcl fooa pnlbg">
+     <h3 class="pnlhd pnlh">{{.coin.Name}} Price</h3> 
+     <div class="pnlbg">
+     <amp-iframe title="{{.coin.Name}} Price" src="https://{{.coin.Slug}}.com-http.us/frames/ccw" height="300px" width="auto" layout="fixed-height" frameborder="0" sandbox="allow-scripts" class="padd">
+     <amp-layout placeholder="" layout="fill" class="btcanimpld"><div class="btcanim">
+          
+          
+          </div></amp-layout></amp-iframe></div></div></div></section>
+{{end}}

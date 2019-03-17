@@ -1,0 +1,63 @@
+{{ define "base"}}
+<!DOCTYPE html>
+<html ⚡ lang="en">
+<head>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title data-n-head="true">Index</title>
+    <link data-n-head="true" rel="canonical" href="https://com-http.us/"/>
+    <link data-n-head="true" rel="preload" href as="image"/>
+    <link data-n-head="true" rel="preload" href as="image"/>
+    <link data-n-head="true" rel="preload" href as="image"/>
+    
+    
+{{ template "amp-bind"}}
+{{ template "amp-selector"}}
+{{ template "amp-accordion"}}
+{{ template "amp-form"}}
+{{ template "amp-fx-collection"}}
+{{ template "amp-iframe"}}
+{{ template "amp-analytics"}}
+{{ template "amp-mustache"}}
+{{ template "amp-live-list"}}
+{{ template "amp-fit-text"}}
+{{ template "amp-list"}}
+
+
+    <style amp-custom>
+{{template "css" .}}
+
+</style>
+    {{template "amp" .}}
+    {{template "amp-boot" .}}
+
+  </head>
+  <body data-n-head="">
+  
+       
+    <div class="scs flx fcl">
+    
+    <div id="coinbg" class="flx frw fii coinbg"><amp-img layout="flex-item" src="https://i.com-http.us/{{.coin.Slug}}/256" alt="{{.coin.Name}} BackGround"></amp-img></div> 
+    
+    
+ {{ template "header" .}}
+    
+
+    <main class="scr fwh iflx fcl fii main">
+    
+    
+{{ template "content" .}}
+          
+          
+          </main> 
+          
+          
+          {{template "footer" .}}
+</div>
+
+
+</body>
+</html>
+{{end}}

@@ -1,0 +1,13 @@
+{{ define "footer"}}
+          <footer class="scr fnv">
+          <nav class="flx qbtns">
+          <button on="tap: AMP.navigateTo(url= '/')" class="top-half left-half fjcc fai animbg">{{template "info"}}<span>Info</span></button>
+{{ if .coin.BitNode }}
+<button on="tap: AMP.navigateTo(url= '/explorer')" class="top-half left-half fjcc fai animbg">{{template "info"}}<span>Block Explorer</span></button>
+<button on="tap: AMP.navigateTo(url= '/network')" class="top-half left-half fjcc fai animbg">{{template "block"}}<span>Network</span></button>
+{{end}}
+        <button on="tap: AMP.navigateTo(url= '/market')" class="top-half fjcc fai animbg">{{template "net"}}<span>Market</span></button>
+        <button on="tap: AMP.navigateTo(url= '/community')" class="top-half fjcc fai animbg">{{template "price"}}<span>Community</span></button>
+        <button on="tap: AMP.navigateTo(url= '/art')" class="top-half fjcc fai animbg">{{template "block"}}<span>Art</span></button>
+          </nav></footer>
+{{end}}

@@ -1,0 +1,60 @@
+{{ define "content"}}
+          
+   <section class="flx fcl fii"><div class="pnl flx fii"><div id="blocks" amp-fx="fade-in" class="flx fcl fii pnlbg">
+   <amp-state id="blockHeight">{ "blockHeight": "{{.last.d}}" }</amp-state> <div class="flx frw foa fjcsb blh"><h3 class="flx frw fii pnlh pnlhd">Block Height  </h3> 
+   <input id="blockHeight-input" type="number" min="0" max="{{.last.d}}" placeholder="{{.last.d}}" [value]="blockHeight" on="input-throttled:AMP.setState({ blockHeight: event.value })" value="{{.last.d}}" class="flx fii "></div> 
+   <article class="flx frw fii pnlbg fwh padb block">
+   <amp-list id="blockpanel" layout="flex-item" items="d" single-item="" src="https://{{.coin}}.com-http.us/a/b/{{.last.d}}" [src]="'https://{{.coin}}.com-http.us/a/b/' + blockHeight" class="cgl">
+  <template type="amp-mustache" id="blockpanel">
+    <div class="blockdata">
+      <h4 class="pad">Block Data</h4>
+{{`{{#b}}`}}
+<table class="table table-hover"><tbody>
+{{`{{#b.bits}}`}}<tr><td ><strong>Bits</strong></td><td>{{`{{b.bits}}`}}</td></tr>{{`{{/b.bits}}`}}
+{{`{{#b.confirmations}}`}}<tr><td ><strong>Confirmations</strong></td><td>{{`{{confirmations}}`}}</td></tr>{{`{{/b.confirmations}}`}}
+{{`{{#b.difficulty}}`}}<tr><td ><strong>Difficulty</strong></td><td>{{`{{difficulty}}`}}</td></tr>{{`{{/b.difficulty}}`}}
+{{`{{#b.hash}}`}}<tr><td ><strong>Hash</strong></td><td><small><a href="/explorer/hash/{{`{{b.hash}}`}}">{{`{{b.hash}}`}}</a></small></td></tr>{{`{{/b.hash}}`}}
+{{`{{#b.height}}`}}<tr><td ><strong>Height</strong></td><td><a href="/explorer/block/{{`{{b.height}}`}}">{{`{{b.height}}`}}</a></td></tr>{{`{{/b.height}}`}}
+{{`{{#b.merkleroot}}`}}<tr><td ><strong>Merkle root</strong></td><td><small>{{`{{merkleroot}}`}}</small></td></tr>{{`{{/b.merkleroot}}`}}
+{{`{{#b.nextblockhash}}`}}<tr><td ><strong>Next block hash</strong></td><td><small><a href="/explorer/hash/{{`{{b.nextblockhash}}`}}">{{`{{b.nextblockhash}}`}}</a></small></td></tr>{{`{{/b.nextblockhash}}`}}
+{{`{{#b.nonce}}`}}<tr><td ><strong>Nonce</strong></td><td>{{`{{b.nonce}}`}}</td></tr>{{`{{/b.nonce}}`}}
+{{`{{#b.pow_algo}}`}}<tr><td ><strong>POW algo</strong></td><td>{{`{{b.pow_algo}}`}}</td></tr>{{`{{/b.pow_algo}}`}}
+{{`{{#b.pow_algo_id}}`}}<tr><td ><strong>POW algo id</strong></td><td>{{`{{b.pow_algo_id}}`}}</td></tr>{{`{{/b.pow_algo_id}}`}}
+{{`{{#b.pow_hash}}`}}<tr><td ><strong>POW hash</strong></td><td>{{`{{b.pow_hash}}`}}</td></tr>{{`{{/b.pow_hash}}`}}
+{{`{{#b.previousblockhash}}`}}<tr><td ><strong>Previous block hash</strong></td><td><small><a href="/explorer/hash/{{`{{b.previousblockhash}}`}}">{{`{{b.previousblockhash}}`}}</a></small></td></tr>{{`{{/b.previousblockhash}}`}}
+{{`{{#b.size}}`}}<tr><td ><strong>Size</strong></td><td>{{`{{b.size}}`}}</td></tr>{{`{{/b.size}}`}}
+{{`{{#b.time}}`}}<tr><td ><strong>Time</strong></td><td>{{`{{b.time}}`}}</td></tr>{{`{{/b.time}}`}}
+{{`{{#b.version}}`}}<tr><td ><strong>Version</strong></td><td>{{`{{b.version}}`}}</td></tr>{{`{{/b.version}}`}}
+</tbody></table>
+{{`{{/b}}`}}
+</div>
+<div class="wtxs">
+  <h4 class="pad">Transactions</h4>
+<div class="wtxw">
+  {{`{{#t}}`}}
+    <h5 class="pads">{{`{{#txid}}`}}<strong>TXid <a href="https://{{.coin}}.com-http.us/explorer/tx/{{`{{txid}}`}}">{{`{{txid}}`}}</a></strong>{{`{{/txid}}`}}</h5>
+	<table class="table table-hover"><tbody>
+{{`{{#t.blockhash}}`}}<tr><td ><strong>Block hash</strong></td><td><a href="/explorer/hash/{{`{{t.blockhash}}`}}">{{`{{t.blockhash}}`}}</a></td></tr>{{`{{/t.blockhash}}`}}
+{{`{{#blocktime}}`}}<tr><td ><strong>Block time</strong></td><td>{{`{{blocktime}}`}}</td></tr>{{`{{/blocktime}}`}}
+{{`{{#confirmations}}`}}<tr><td ><strong>Confirmations</strong></td><td>{{`{{confirmations}}`}}</td></tr>{{`{{/confirmations}}`}}
+{{`{{#hex}}`}}<tr><td ><strong>Hex</strong></td><td>
+        <small>{{`{{hex}}`}}</small>
+</td></tr>{{`{{/hex}}`}}
+{{`{{#locktime}}`}}<tr><td ><strong>Locktime</strong></td><td>{{`{{locktime}}`}}</td></tr>{{`{{/locktime}}`}}
+{{`{{#time}}`}}<tr><td ><strong>Time</strong></td><td>{{`{{time}}`}}</td></tr>{{`{{/time}}`}}
+{{`{{#version}}`}}<tr><td ><strong>Version</strong></td><td>{{`{{version}}`}}</td></tr>{{`{{/version}}`}}
+{{`{{#vin}}`}}<tr> <td ><strong>Value in</strong></td><td>{{`{{#vin}}`}}{{`{{#coinbase}}`}}<strong>Coinbase: </strong><small>{{`{{coinbase}}`}}</small><br>{{`{{/coinbase}}`}}{{`{{#sequence}}`}}<strong>Sequence: </strong>{{`{{sequence}}`}}{{`{{/sequence}}`}}{{`{{/vin}}`}}</td></tr>{{`{{/vin}}`}}
+{{`{{#vout}}`}}<tr><td ><strong>Value out</strong></td><td>{{`{{#vout}}`}}{{`{{#n}}`}}<strong>N: </strong>{{`{{n}}`}} {{`{{/n}}`}}<br>
+{{`{{#scriptPubKey}}`}}{{`{{#addresses}}`}}<strong>Addresses: </strong><a href="/explorer/addr/{{`{{.}}`}}"><small>{{`{{.}}`}}</small></a> {{`{{/addresses}}`}}<br>
+{{`{{#asm}}`}}<strong>ASM: </strong><small>{{`{{asm}}`}}</small>{{`{{/asm}}`}}<br>
+{{`{{#hex}}`}}<strong>hex: </strong><small>{{`{{hex}}`}}</small>{{`{{/hex}}`}}<br>
+{{`{{#reqSigs}}`}}<strong>ReqSigs: </strong>{{`{{reqSigs}}`}} {{`{{/reqSigs}}`}}<br>
+{{`{{#type}}`}}<strong>Type: </strong>{{`{{type}}`}} {{`{{/type}}`}}<br>
+{{`{{/scriptPubKey}}`}}<hr>
+{{`{{#value}}`}}<strong>Value: </strong>{{`{{value}}`}} {{`{{/value}}`}}<br>{{`{{/vout}}`}}</td></tr>{{`{{/vout}}`}}
+</tbody>
+</table>
+{{`{{/t}}`}}</div>
+</div></template></amp-list></article></div></div></section>
+
+{{end}}

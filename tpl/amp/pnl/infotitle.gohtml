@@ -1,0 +1,11 @@
+{{ define "infotitle"}}
+    <div class="pnl"><div amp-fx="fade-in" class="flx fcl pnlbg fjc fai basics">
+    <figure class="padd"><amp-img src=data:image/png;base64,{{.coin.Imgs.Img256}} alt="{{.coin.Name}}" width="256px" height="256px" layout="fixed" class="nic"><noscript><img src="//i.com-http.us/{{.coin.Slug}}/256" width="256" height="256" alt="{{.coin.Name}}"></noscript></amp-img></figure>
+    <h1 class="flx fii fcl fjc fai"><amp-fit-text height="66px" width="280px" layout="flex-item" min-font-size="32"><a href="https://{{.coin.Slug}}.com-http.us/">{{.coin.Name}}</a></amp-fit-text></h1>
+     <div class="mard desc">{{.coin.CData.Description}}</div> 
+     <ul class="flx fii sts">
+     <li><button on="tap:AMP.navigateTo(url='//{{.coin.Slug}}.com-http.us/explorer')" class="orange">Blocks</button></li> 
+     <li class="stm"><button on="tap:AMP.navigateTo(url='//{{.coin.Slug}}.com-http.us/network')" class="green">Network</button></li>
+     <li><button on="tap:AMP.navigateTo(url='//{{.coin.Slug}}.com-http.us/price')" class="red">Price</button></li>
+     </ul></div></div>
+{{end}}

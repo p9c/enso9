@@ -1,0 +1,8 @@
+{{ define "infoprice"}}
+     <div class="pnl"><div amp-fx="fade-in" class="flx fcl fooa pnlbg">
+     <h3 class="pnlhd pnlh">{{.coin.Name}} Price</h3> 
+     <div class="pnlbg">
+     <amp-iframe title="{{.coin.Name}} Price" src="https://f.com-http.us/{{.coin.Slug}}/prices/ccw" height="300px" width="auto" layout="fixed-height" frameborder="0" sandbox="allow-scripts" class="padd">
+     <amp-layout placeholder="" layout="fill" class="btcanimpld"><div class="btcanim"></div></amp-layout></amp-iframe></div>
+     </div></div>
+{{end}}

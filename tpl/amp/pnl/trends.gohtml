@@ -1,0 +1,8 @@
+{{ define "trends"}}
+     <div class="pnl dbl">
+     <amp-iframe title="{{.coin.Name}} Trends - Interest over time" src="https://trends.google.com/trends/embed/explore/TIMESERIES?req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22{{.coin.Slug}}%22%2C%22geo%22%3A%22%22%2C%22time%22%3A%22today%2012-m%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D&tz=-120&eq=q%3D{{.coin.Slug}}%26date%3Dtoday%2012-m" height="360" layout="flex-item" frameborder="0" sandbox="allow-scripts allow-same-origin" amp-fx="fade-in">
+      <amp-img layout="fill"
+             src="https://placekitten.com/g/300/300"
+             placeholder></amp-img>
+     </amp-iframe></div> 
+{{end}}

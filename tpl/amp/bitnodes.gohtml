@@ -1,0 +1,86 @@
+{{ define "bitnodes"}}
+
+<!doctype html>
+<html ⚡ data-n-head-ssr data-n-head="">
+  <head>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title data-n-head="true">Index</title><link data-n-head="true" rel="canonical" href="https://com-http.us/"/>
+    <link data-n-head="true" rel="preload" href as="image"/><link data-n-head="true" rel="preload" href as="image"/>
+    
+
+  
+{{ template "amp-bind"}}
+{{ template "amp-selector"}}
+{{ template "amp-accordion"}}
+{{ template "amp-form"}}
+{{ template "amp-fx-collection"}}
+{{ template "amp-iframe"}}
+{{ template "amp-analytics"}}
+{{ template "amp-mustache"}}
+{{ template "amp-live-list"}}
+{{ template "amp-fit-text"}}
+{{ template "amp-list"}}
+{{ template "amp-lightbox"}}
+{{ template "amp-timeago"}}
+
+    <style amp-custom>
+{{ template "css"}}
+
+</style>
+    {{ template "amp"}}
+{{ template "amp-boot"}}
+
+  </head>
+  <body data-n-head=""> 
+
+
+    
+{{ template "header" .}}
+                    
+                    <main class="scr fwh flx fcl fii main">
+                    
+                    <section class="flx fcl fii index">
+                    
+
+
+
+<table class="table table-hover">
+<thead><tr><th></th><th>Coin</th><th>Node ID</td><td>IP</td><td>Time</td><td>Block Height</td><td>Connections</td><td>Version</td></th></thead>
+<tbody>
+{{ range .}}{{ if .Status.Data}}
+<tr>
+        <th><figure><amp-img layout="fixed" src="https://i.com-http.us/{{.Coin}}/16" width="16px" height="16px" alt="{{ .NodeID}}  -  {{ .IP }} "></amp-img></figure></th>
+        <th>{{.CoinData.Name}}</th>
+        <td>{{ .NodeID }}</td>
+        <td>{{ .IP }}</td>
+
+        <td><amp-timeago layout="fixed" width="120" height="20" datetime="{{ .Status.Time }}">{{ .Status.Time }}</amp-timeago></td>
+
+<td>{{with $x := .Status.Data.blocks}}{{printf "%9.0f\n" $x}}{{end}}</td>
+<td>{{ .Status.Data.connections }}</td>
+<td>{{with $x := .Status.Data.protocolversion}}{{printf "%9.0f\n" $x}}{{end}}</td>
+        
+
+
+</tr>        
+{{end}}{{end}}</tbody></table>   
+      
+
+
+
+        </section>
+   
+ </main>
+        
+        
+        
+        
+        
+        
+        
+        </body>
+</html>
+{{end}}

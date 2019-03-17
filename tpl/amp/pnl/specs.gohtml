@@ -1,0 +1,16 @@
+{{ define "specs"}}
+     <div class="pnl"><div amp-fx="fade-in" class="flx fcl fooa pnlbg">
+     <h3 class="pnlhd pnlh">{{.coin.Name}} Specifications</h3>
+     <div class="padd pnlbg">
+     <table class="table"><tbody>
+     <tr><td>Name</td><td>{{.coin.Name}}</td></tr>
+     <tr><td>Symbol</td><td>{{.coin.Symbol}}</td></tr>
+     <tr><td>Start Date</td><td>{{.coin.CData.StartDate}}</td></tr>
+     <tr><td>Twitter</td><td>{{.coin.CData.Twitter}}</td></tr>
+     <tr><td>Website Url</td><td>{{.coin.CData.WebSite}}</td></tr>
+     <tr><td>Algorithm</td><td>{{.coin.Algo}}</td></tr>
+     <tr><td>Total Coin Supply</td><td>{{.coin.CData.TotalCoinSupply}}</td></tr>
+     <tr><td>Difficulty Adjustment</td><td>{{.coin.CData.DifficultyAdjustment}}</td></tr>
+     <tr><td>Block Reward Reduction</td><td>{{.coin.CData.BlockRewardReduction}}</td></tr>
+     <tr><td>Proof Type</td><td>{{.coin.CData.ProofType}}</td></tr></tbody></table></div></div></div>
+{{end}}

@@ -1,0 +1,93 @@
+{{ define "home"}}
+
+<!doctype html>
+<html ⚡ data-n-head-ssr data-n-head="">
+  <head>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title data-n-head="true">Index</title><link data-n-head="true" rel="canonical" href="https://com-http.us/"/>
+    <link data-n-head="true" rel="preload" href as="image"/><link data-n-head="true" rel="preload" href as="image"/>
+    
+
+  
+{{ template "amp-bind"}}
+{{ template "amp-selector"}}
+{{ template "amp-accordion"}}
+{{ template "amp-form"}}
+{{ template "amp-fx-collection"}}
+{{ template "amp-iframe"}}
+{{ template "amp-analytics"}}
+{{ template "amp-mustache"}}
+{{ template "amp-live-list"}}
+{{ template "amp-fit-text"}}
+{{ template "amp-list"}}
+{{ template "amp-lightbox"}}
+
+    <style amp-custom>
+{{ template "css"}}
+
+</style>
+    {{ template "amp"}}
+{{ template "amp-boot"}}
+
+  </head>
+  <body data-n-head=""> 
+
+
+    
+{{ template "header" .}}
+                    
+                    <main class="scr fwh flx fcl fii main">
+                    
+                    <section class="flx fcl fii index">
+                        <section class="flx frw fwr fsc">
+    <button on="tap:allcoins" class="btn">All Coins</button> 
+
+    <button on="tap: AMP.navigateTo(url= '/bitnodes/')" class="btn">BitNodes</button> 
+
+    
+
+
+
+        </section>
+                    <section class="flx frw fwr fsc">
+{{ range .bitnodes}}
+<article amp-fx="fade-in" class="flx pnl pnlbg fcl mar bitnode">
+<button on="tap:AMP.navigateTo(url='//{{ .Slug }}.com-http.us/')" class="flx frw pnlhd">
+<figure><amp-img layout="fixed" src="https://i.com-http.us/{{.Slug}}/32" width="32px" height="32px" alt="{{ .Name }}"></amp-img></figure>
+<h3 class="flx fii fjc fai">{{.Name}}</h3></button>
+<main class="flx fcl"><amp-live-list id="{{ .Slug }}-live" data-poll-interval="15000" data-max-items-per-page="1" class="flx ">
+<button update="" on="tap:amp-live-list-update.update" class="btn btn-pri">You have updates</button>
+<div items="" class="flx fii">
+        <div id="{{ .Slug }}-stat" data-sort-time="1234567" data-update-time="20181021052854" class="flx">
+        <div class="flx fii pnl "><div class="flx fii">
+        <amp-list id="{{ .Slug }}-list" height="150px" width="auto" layout="flex-item" src="//api.com-http.us/{{ .Slug }}/m" items="d" single-item="" class="cgl"><template type="amp-mustache">
+        <table class="table table-hover"><tbody><tr><td>Blocks:</td><td>{{`{{ blocks }}`}}</td></tr>
+        <tr><td>Difficulty:</td><td>{{`{{difficulty}}`}}</td></tr>
+        <tr><td>MemPool Tx:</td><td>{{`{{pooledtx}}`}}</td></tr></tbody></table></template></amp-list></div></div></div></div></amp-live-list></main> 
+        <footer class="flx fcl"><ul class="sts"><li><button on="tap:AMP.navigateTo(url='//{{ .Slug }}.com-http.us/explorer')" class="blue">Explorer</button></li> 
+        <li><button on="tap:AMP.navigateTo(url='//{{ .Slug }}.com-http.us/')" class="light-blue">Info</button></li></ul></footer></article>
+        {{end}}
+        </section>
+
+ </main>
+        
+        
+        
+        
+        <amp-lightbox id="allcoins" layout="nodisplay">
+    <amp-iframe title="Crypto Coins" src="https://com-http.us/coins/" layout="fill"  frameborder="0"  sandbox="allow-scripts allow-top-navigation-by-user-activation">
+      <amp-img layout="fill"
+             src="https://placekitten.com/g/300/300"
+             placeholder></amp-img>
+             </amp-iframe>
+    <button on="tap:allcoins.close">Close</button>
+</amp-lightbox>
+
+        
+        
+        </body>
+</html>
+{{end}}
